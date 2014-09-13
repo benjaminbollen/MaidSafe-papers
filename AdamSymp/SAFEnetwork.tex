@@ -22,13 +22,12 @@ the creation of a network, which provides average users the opportunity
 to retain complete control of their own security and personal information.
 \end{abstract}
 
-\section{Introduction}
+\section{Introduction [UPDATE arguments and sources]}
 
 Computing capability has increased dramatically in recent years, enabling
 the creation of some incredible advancements. % As Moore\textquoteright s law successfully predicted for a number of years, the processing power of computers has doubled every 2 years while the increase in the connectivity of devices is growing exponentially. The so called Internet of Things (IOT - interconnection of identifiable devices), was predicted to rise from an estimated 1.3 billion devices at the end of 2010 to 1.6 billion units worldwide by the end of 2015\footnote{http://www.idate.org/en/News/Digital-Home-Connectable-devices\_693.html}.
 Furthermore, the distribution of faster Internet has also played its part with an estimated rise in average worldwide connection (download)
 speed of 2.1Mbps in Q1 2011 to 3.9 Mbps in Q1 2014\footnote{http://www.statista.com/statistics/204954/average-internet-connection-speed-worldwide/}.
-
 These technological advancements, faster infrastructure and greater
 availability have led to products and services that were previously
 not possible. For example, the delivery of voice and multimedia communications
@@ -38,25 +37,16 @@ suite of tools than ever before, they have also led to fundamental
 changes in how we communicate with each other. The rise of social
 networking websites, mobile devices and mobile applications has led
 to an explosion in what and how much data we share with each other.
-Zuckerberg\textquoteright s Law, as it has become known, takes inspiration
-from Moore\textquoteright s Law and states that the amount of data
-Facebook users share doubles every year%
-\footnote{http://www.technologyreview.com/review/426438/the-law-of-online-sharing/%
-}. While the maths of Zuckerberg\textquoteright s Law has been called
-into question by some commentators, who helpfully point out that by
-2031 we will be sharing 1,048,576 times more data per day than we
-do at present, the sentiment that we share increasing amounts of data
-is clear.
+%Zuckerberg\textquoteright s Law, as it has become known, takes inspiration from Moore\textquoteright s Law and states that the amount of data Facebook users share doubles every year \footnote{http://www.technologyreview.com/review/426438/the-law-of-online-sharing/}. While the maths of Zuckerberg\textquoteright s Law has been called into question by some commentators, who helpfully point out that by 2031 we will be sharing 1,048,576 times more data per day than we do at present, the sentiment that we share increasing amounts of data is clear.
 
 This technological evolution is not only affecting how much data we
 share, it is also heavily impacting upon where consumers store data.
 Market research agency Gartner predict that users will store 36\%
 of their content online by 2016, a sharp increase from an estimated
 7\% in 2011%
-\footnote{http://www.datacenterknowledge.com/archives/2012/07/02/gartner-consumers-will-store-more-in-the-cloud/%
-}. Gartner goes onto suggest that the average household stored 464
+\footnote{http://www.datacenterknowledge.com/archives/2012/07/02/gartner-consumers-will-store-more-in-the-cloud/}. Gartner goes on to suggest that the average household stored 464
 GB online in 2011 and is forecast to rise to 3.3 TB by 2016, driven
-by an increased desire to share and by consumers use of multiple devices
+by an increased desire to share and by consumers' use of multiple devices
 (as storing online enables them to access all their data across all
 their devices).
 
@@ -64,30 +54,19 @@ While these enhancements take technological ease of use to the next
 level, these convenient and often free services come at a price. The
 price is freedom. Today\textquoteright s centralised Internet architecture,
 where centralised and managed intermediaries (servers) store and provide
-access to information, they do so in an inherently insecure way. We also
+access to information, do so in an inherently insecure way. We also
 experience an ever increasing number of concerns over the privacy
 of our data and this paper argues that it is in fact human involvement,
 and the existing client server architecture\textquoteright s requirement
 for human organisation, that leads to these security and privacy issues.
-MaidSafe proposes and implements a new architecture that eliminates human involvement in private data.  Hence we enable 
+
+MaidSafe proposes and implements a new, decentralised architecture that eliminates human involvement in private data.  Hence we enable users to enjoy the significant resources of the Internet, without selling out on their privacy to do so.
 
 
 \section{The Internet is broken}
 
-The fact that the Internet was not designed from the ground up to
-cope with the current demands is, at the very least, a strong contributing
-factor that has led to some of the issues that this paper attempts
-to address. It is evident looking back, that the current volume of
-2.8 billion regular users was not anticipated%
-\footnote{http://www.internetworldstats.com/stats.htm%
-}. In fact, the original design of ARPANET (the precursor to the modern
-Internet) is much closer the decentralised architecture that is advocated
-here. When developing a data transmission protocol more suited to
-the now planned open architecture networking environment, one of Kahn\textquoteright s
-(a key architect of ARPANET) fundamental rules was that \textquotedblleft \dots there
-would be no global control at the operations level\textquotedblright %
-\footnote{http://www.internetsociety.org/internet/what-internet/history-internet/brief-history-internet\#f2%
-}. However, some of these principles took a back seat as other considerations
+The fact that the Internet has grown beyond the expected use cases of the original design is, at the very least, a strong motivation to consider a renewed architecture. It is evident looking back, that the current volume of
+2.8 billion regular users\footnote{http://www.internetworldstats.com/stats.htm} was not anticipated, nor was the original design of ARPANET centralising. In fact, one of Bob Kahn\textquoteright s fundamental rules, when designing the transmission control protocol (TCP), was that \textquotedblleft \dots there would be no global control at the operations level\textquotedblright\footnote{http://www.internetsociety.org/internet/what-internet/history-internet/brief-history-internet}. However, some of these principles took a back seat as other considerations
 took priority.
 
 It was originally envisioned, back in the late 1960\textquoteright s,
