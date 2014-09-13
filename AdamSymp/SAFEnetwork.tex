@@ -1,0 +1,631 @@
+%% LyX 2.1.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[twocolumn,english]{article}
+\usepackage[latin9]{inputenc}
+\usepackage{babel}
+\begin{document}
+
+\title{The SAFE Network, a New, Decentralised Internet}
+
+
+\author{Nick Lambert\footnote{nick.lambert@maidsafe.net} and Benjamin Bollen\footnote{benjamin.bollen@maidsafe.net}}
+\maketitle
+\begin{abstract}
+The Internet is an incredible resource, enabling the storage and sharing
+of data amongst 40\% of the world\textquoteright s population. However,
+these storage locations are inherently insecure and enable mass surveillance
+and data theft by companies and world Governments. This paper proposes
+a solution by redesigning and reimplementing the Internet\textquoteright s
+underlying infrastructure to require no central control and by implication,
+no servers as we currently know them. The ideas presented here allow
+the creation of a network, which provides average users the opportunity
+to retain complete control of their own security and personal information.
+\end{abstract}
+
+\section{Introduction}
+
+Computing capability has increased dramatically in recent years, enabling
+the creation of some incredible advancements. As Moore\textquoteright s
+law successfully predicted for a number of years, the processing power
+of computers has doubled every 2 years while the increase in the connectivity
+of devices is growing exponentially. The so called Internet of Things
+(IOT - interconnection of identifiable devices), was predicted to
+rise from an estimated 1.3 billion devices at the end of 2010 to 1.6
+billion units worldwide by the end of 2015%
+\footnote{http://www.idate.org/en/News/Digital-Home-Connectable-devices\_693.html%
+}. Furthermore, the distribution of faster Internet has also played
+its part with an estimated rise in average worldwide connection (download)
+speed of 2.1Mbps in Q1 2011 to 3.9 Mbps in Q1 2014%
+\footnote{http://www.statista.com/statistics/204954/average-internet-connection-speed-worldwide/%
+}.
+
+These technological advancements, faster infrastructure and greater
+availability have led to products and services that were previously
+not possible. For example, the delivery of voice and multimedia communications
+(VOIP) between mobile devices are now common place and was expected
+to reach 1 billion subscribers by the end of 2013%
+\footnote{http://www.infonetics.com/pr/2013/Mobile-VoIP-Services-and-Subscribers-Market-Highlights.asp%
+}. Similarly, Computer Aided Learning has changed how education is
+delivered by many academic institutions, while large scale data computations
+facilitate analysis of huge data sets within medical and scientific
+research. 
+
+These advancements have not only provided the human race with a greater
+suite of tools than ever before, they have also led to fundamental
+changes in how we communicate with each other. The rise of social
+networking websites, mobile devices and mobile applications has led
+to an explosion in what and how much data we share with each other.
+Zuckerberg\textquoteright s Law, as it has become known, takes inspiration
+from Moore\textquoteright s Law and states that the amount of data
+Facebook users share doubles every year%
+\footnote{http://www.technologyreview.com/review/426438/the-law-of-online-sharing/%
+}. While the maths of Zuckerberg\textquoteright s Law has been called
+into question by some commentators, who helpfully point out that by
+2031 we will be sharing 1,048,576 times more data per day than we
+do at present, the sentiment that we share increasing amounts of data
+is clear.
+
+This technological evolution is not only affecting how much data we
+share, it is also heavily impacting upon where consumers store data.
+Market research agency Gartner predict that users will store 36\%
+of their content online by 2016, a sharp increase from an estimated
+7\% in 2011%
+\footnote{http://www.datacenterknowledge.com/archives/2012/07/02/gartner-consumers-will-store-more-in-the-cloud/%
+}. Gartner goes onto suggest that the average household stored 464
+GB online in 2011 and is forecast to rise to 3.3 TB by 2016, driven
+by an increased desire to share and by consumers use of multiple devices
+(as storing online enables them to access all their data across all
+their devices).
+
+While these enhancements take technological ease of use to the next
+level, these convenient and often free services come at a price. The
+price is freedom. Today\textquoteright s centralised Internet architecture,
+where centralised and managed intermediaries (servers) store and provide
+access to information, do so in an inherently insecure way. We also
+experience an ever increasing number of concerns over the privacy
+of our data and this paper argues that it is in fact human involvement,
+and the existing client server architecture\textquoteright s requirement
+for human organisation, that leads to these security and privacy issues.
+Human involvement in our data takes many forms and has existed for
+a number of years. By examining these issues we can start to diagnose
+where the main problems lie and propose and implement a new architecture,
+one that may enable users to enjoy the significant resources of the
+Internet, without experiencing many of the negative aspects we see
+today. 
+
+
+\section{The Internet is broken}
+
+The fact that the Internet was not designed from the ground up to
+cope with the current demands is, at the very least, a strong contributing
+factor that has led to some of the issues that this paper attempts
+to address. It is evident looking back, that the current volume of
+2.8 billion regular users was not anticipated%
+\footnote{http://www.internetworldstats.com/stats.htm%
+}. In fact, the original design of ARPANET (the precursor to the modern
+Internet) is much closer the decentralised architecture that is advocated
+here. When developing a data transmission protocol more suited to
+the now planned open architecture networking environment, one of Kahn\textquoteright s
+(a key architect of ARPANET) fundamental rules was that \textquotedblleft \dots there
+would be no global control at the operations level\textquotedblright %
+\footnote{http://www.internetsociety.org/internet/what-internet/history-internet/brief-history-internet\#f2%
+}. However, some of these principles took a back seat as other considerations
+took priority.
+
+It was originally envisioned, back in the late 1960\textquoteright s,
+that there would be multiple independent networks and as Leiner et
+al suggested \textquotedblleft \dots{} 256 networks would be sufficient
+for the foreseeable future'', was clearly in need of consideration
+when Local Area Networks (LANS) began to appear in the late 1970\textquoteright s%
+\footnote{http://www.internetsociety.org/internet/what-internet/history-internet/brief-history-internet\#f2%
+}. The addition of workstations, PC\textquoteright s and Ethernet technology,
+in addition to LANs, also led to changes in the original architecture
+concepts. The rapid and unforeseen rise in the Internet\textquoteright s
+growth introduced scaling issues (the single algorithm employed with
+all routers could not cope with demand) that were dealt with by the
+implementation of a hierarchal routing model. This approach led to
+a centralising of it\textquoteright s architecture, with the introduction
+of \textquotedblleft managed interconnection points\textquotedblright{}
+by US Federal agencies. 
+
+This enabled more \dots \textquotedblright rapid configuration robustness
+and better scaling to be accommodated\textquotedblright %
+\footnote{http://www.internetsociety.org/internet/what-internet/history-internet/brief-history-internet\#f2%
+}. As the National Science Foundation (NSF) started to privatise and
+commercialise the program in 1995, the use of regional networks via
+private long haul carriers led to the information superhighway, envisioned
+by Tim Berners-Lee, that we are familiar with today. However, as the
+Internet has continued to grow, it is suggested that this change in
+direction has led to some significant problems that not only impact
+upon the way the world\textquoteright s citizens manage data, it is
+having a much more profound impact on society as a whole. 
+
+
+\subsection{Government Control }
+
+Governments spying and eavesdropping is nothing new%
+\footnote{http://www.bbc.co.uk/news/magazine-24749166%
+}. Letters have been intercepted for centuries and spy networks have
+existed for millennia. In recent times, attention has shifted from
+telegrams to email. Within the US, Project Shamrock, established after
+the Second World War, legally accessed all the cables of RCA Global,
+ITT, and Western Union. Minaret was another project, established in
+the 1960s to focus on intelligence gathering amongst domestic targets%
+\footnote{http://www.vice.com/read/a-brief-history-of-the-united-states-governments-warrentless-spying%
+}. Despite both programs being exposed and subsequently shelved, they
+were the pre cursor to ECHELON (an ongoing surveillance operation
+still not officially recognised by the NSA), that utilises automatic
+keyword searching of faxes, telex and emails%
+\footnote{http://fas.org/irp/program/process/rapport\_echelon\_en.pdf%
+}. 
+
+The now infamous Snowden files brought modern mass surveillance techniques
+much more into the public eye. These revelations demonstrated that
+intelligence agencies were able to access data at will from some of
+the world\textquoteright s largest technology companies (PRISM) and
+by tapping data direct from fibre optic cables (TEMPORA, FAIRVIEW,
+STORMBREW, OAKSTAR and BLARNEY)%
+\footnote{http://www.theguardian.com/world/the-nsa-files%
+}. Although denied by almost all technology companies, NSA slides suggest
+they were complicit, willing or otherwise, in helping to collect this
+data%
+\footnote{http://www.theguardian.com/world/2013/jun/06/us-tech-giants-nsa-data%
+}.
+
+This paper proposes that the existing centralised architecture (in
+the case of PRISM) and the involvement of humans make these privacy
+intrusions possible. All existing networks require that users are
+authenticated onto them and while this process is automated, the credentials
+of the users are stored in centralised locations. Furthermore, the
+encryption keys are held by the service provider, enabling them to
+access to their users data%
+\footnote{http://www.techrepublic.com/blog/it-security/does-your-cloud-storage-provider-hold-the-keys-to-your-data/%
+}. While client side encryption technology is becoming more widely
+available, it is not typically inherent within the \textquoteleft off
+the shelf \textquoteleft product. It is also worth noting that US
+based companies are legally obliged to comply with Government agency
+requests for user data.
+
+Libertarians, civil rights groups and privacy advocates have unsurprisingly
+requested tougher laws to limit the surveillance powers of governments%
+\footnote{http://www.hrw.org/news/2014/06/18/joint-letter-re-usa-freedom-act%
+}. However, the long history of government eavesdropping suggests that
+this is not an issue that will be fixed by legislation alone. Many
+commentators believe that the Governments cannot be trusted to push
+through the appropriate level of legislation that not only protects
+consumers, but is also prepared to operate under these rules%
+\footnote{http://www.theguardian.com/media/2013/jan/06/hacked-off-government-leveson-proposals%
+}.
+
+Interestingly, much of this monitoring conflicts with the Universal
+Declaration of Human Rights that the US and UK Government and their
+allies (Canada, Australia and New Zealand - the so called 5 eyes)
+have signed up to%
+\footnote{http://www.bbc.co.uk/news/world-europe-24715168%
+}. Of the 30 basic rights established within the declaration, article
+12 is the most relevant to the subject matter of this paper and states%
+\footnote{http://www.un.org/en/documents/udhr/%
+}:
+\begin{quote}
+\textquotedblleft No one shall be subjected to arbitrary interference
+with his privacy, family, home or correspondence, nor to attacks upon
+his honour and reputation. Everyone has the right to the protection
+of the law against such interference or attacks.\textquotedblright{}
+\end{quote}
+The evidence suggests that, over a lengthy period, these Governments
+have chosen to ignore a fundamental human right, an individuals right
+to privacy. However, it is not just nations that choose to invade
+our privacy, technology companies also take advantage of the inefficiencies
+of centralised Internet architecture. The difference is that their
+motivations are not power, as it is with governments, but profit. 
+
+
+\subsection{Surveillance as a business model }
+
+Security expert Bruce Scheier has proposed the notion that \textquotedblleft surveillance
+is the business model of the Internet\textquotedblright %
+\footnote{https://www.schneier.com/blog/archives/2013/11/surveillance\_as\_1.html%
+}. This suggestion is based on the fact that many large technology
+companies generate the over whelming majority of their revenue by
+mining their users data. The revenue model of companies like Google
+and Facebook is to provide their core service(s) free from monetary
+charge and then sell access to their users to companies who pay to
+advertise on their network. Google generated \$50.5 billion in advertising
+revenue during 2013 which equated to 91\% of their yearly sales %
+\footnote{https://investor.google.com/financial/tables.html%
+}. Similarly, Facebook delivered advertising revenue of over \$6.9
+billion to their investors over the same period, equivalent to 89\%
+of their income%
+\footnote{http://investor.fb.com/releasedetail.cfm?ReleaseID=821954%
+}. 
+
+This process has become highly refined and advertisers are able to
+place their own adverts and select specific demographics of users
+they wish to target, minimising or even eliminating the wastage experienced
+with traditional media. Each advertiser is then provided with a detailed
+breakdown of the results of their campaign in real time. These large
+technology companies are able to deliver such a service by knowing
+a significant amount of information about their users. Depending on
+their privacy settings and what devices they use, Internet companies
+could know; all user contacts, web searches, where you have been and
+who your friends are. Some campaigners have suggested that, in the
+case of Facebook, only 29\% of your personal information is available
+through the tools within the site, giving rise to a concern about
+what they are doing with the rest of the data%
+\footnote{http://www.theguardian.com/technology/2012/apr/22/me-and-my-data-internet-giants.%
+}.
+
+Ethan Zuckerman (Director of the Center for Civic Media at MIT and
+principal research scientist at MIT\textquoteright s Media Lab) has
+suggested that:
+\begin{quote}
+\textquotedblleft The fallen state of our Internet is a direct, if
+unintentional, consequence of choosing advertising as the default
+model to support online content and services%
+\footnote{http://www.theatlantic.com/technology/archive/2014/08/advertising-is-the-internets-original-sin/376041/?single\_page=true%
+}.\textquotedblright{} 
+\end{quote}
+Zuckerman goes onto argue that Facebook, Google and others, are under
+more and more pressure from shareholders to sell more and more adverts.
+They will only sell more if they can offer their customers more and
+more insights into their users backgrounds, and they can only do this
+if they continue to mine more and more data. The ad supported web
+has driven Internet adoption and has enabled many of today\textquoteright s
+\textquoteleft free\textquoteright{} services to become available.
+
+This paper suggests that the ad supported web, while not being directly
+responsible for the move toward a more centralised architecture, has
+none the less had a part to play. It is much easier to mine our data
+if it is held in unencrypted and centralised locations. Another consistent
+theme is that humans are once again at the heart of organising the
+data, putting profit (as US listed companies they are legally required
+to) and duties to their shareholders ahead of the privacy of their
+users.
+
+The topic of a surveillance friendly and ad supported Internet is
+an interesting one. To point out the moral problems associated with
+such an architecture is one thing, it is another proposition altogether
+to provide an alternative way of funding a new privacy centric Internet.
+Consider that the user numbers of many currently \textquoteleft free\textquoteright{}
+services would drop as users are asked to pay for the services, becoming
+the customer of the product, rather than the product itself. Given
+that we now understand the web to be a centralised, mass surveillance
+device, it should be less surprising that data security has now become
+such a major issue. 
+
+
+\subsection{Security}
+
+Security of data is an issue that goes hand in hand with privacy,
+as without security data cannot remain private. A European Commission
+project, the ABC4Trust, suggest that users want privacy and organisations
+want security, however, it could be argued that information stolen
+from business typically also affects individuals and therefore both
+groups desire security, albeit of differing importance%
+\footnote{https://ec.europa.eu/digital-agenda/en/news/security-and-privacy-now-they-can-go-hand-hand%
+}.
+
+Whilst opinion on this point may vary from reader to reader, evidence
+suggests that security is about as scarce as privacy within today\textquoteright s
+centralised Internet. At a time when the revenue generated by the
+Internet as a whole is estimated to exceed \$4.2 trillion in G20 countries
+alone, and with companies storing and sharing highly valued and sensitive
+information, demand for Internet data security has never been greater%
+\footnote{https://www.bcg.com/documents/file100409.pdf%
+}. Previously ignored by the security community, it is now widely recognised
+that the weakest link in the security chain are people%
+\footnote{http://discovery.ucl.ac.uk/144215/1/BTTJSECv5.pdf%
+}.
+
+In a UK Government survey on security breaches, 93\% of large organisations
+and 87\% of SME\textquoteright s experienced a security breach in
+2013. The survey reported that major breaches were typically caused
+by a combination of failures in not only people, but also process
+and the technology itself%
+\footnote{https://www.gov.uk/government/uploads/system/uploads/attachment\_data/file/191671/bis-13-p184es-2013-information-security-breaches-survey-executive-summary.pdf%
+}: 
+\begin{quotation}
+\textquotedblleft 36\% of the worst security breaches in the year
+were caused by inadvertent human error (and a further 10\% by deliberate
+misuse of systems by staff)\textquotedblright{} 
+\end{quotation}
+What is also evident is that these problems are not sector specific
+and are taking place across all industries including healthcare, finance
+and education%
+\footnote{http://www.symantec.com/connect/blogs/data-breach-trends%
+}.
+
+In some cases the human element of these breaches is quite simple.
+Users typically gain access to a system by entering a user identification
+(ID) and password, with the userid providing the identification and
+the password providing the authentication. This method is preferred
+as it is seen to be a low cost option in comparison with other technologies,
+such as biometrics. However, passwords come with an overhead, users
+need to login to each system individually and subsequently reuse the
+same password across multiple systems. A US consumer study found that
+61\% of people use an identical password across many websites, with
+54\% of the study\textquoteright s respondents having 5 passwords
+or less%
+\footnote{http://www.csid.com/wp-content/uploads/2012/09/CS\_PasswordSurvey\_FullReport\_FINAL.pdf%
+}. It is also clear that because users are not able to cope with the
+demands made on their memory they do not follow recommended etiquette
+and reset them regularly or use strong (combining letters and numbers)
+passwords.
+
+With global cyber crime costing an estimated 400 billion per year,
+it has a huge impact on society, companies and consumers%
+\footnote{http://www.mcafee.com/uk/about/news/2014/q2/20140609-01.aspx%
+}. In December 2013, 40 million credit card details were stolen from
+a prominent US retailer with the haul also including 70 million addresses
+and other personal information. Similarly, in what appears to be a
+series of attacks, a Russian group has amassed an estimated 1.2 billion
+user names and passwords%
+\footnote{http://www.nytimes.com/2014/08/06/technology/russian-gang-said-to-amass-more-than-a-billion-stolen-internet-credentials.html?\_r=0%
+}. 
+
+With businesses continuing to store valuable information in what are
+insecure centralised points, managed by people that empirical evidence
+suggests are prone to mistakes, a change is clearly required. Failure
+to adapt to these issues will only ensure that they continue. It would
+seem that what is required is a change to the fundamental architecture
+of the Internet, one that removes central points of weakness and humans
+from the process of data management. This fresh approach should clearly
+have security and privacy inherent within the design. 
+
+
+\section{Nature may have the answer}
+
+Complex systems have existed in nature for hundreds of millions of
+years. As the name suggests, they typically exhibit complex and often
+dynamic behaviours, that occur throughout an organisation between
+multiple component systems. These organisations are inseparable from
+their environment and continually adapt to their surroundings, examples
+include; the human brain, ant colonies, societies and the human immune
+system, to name just a few%
+\footnote{https://pure.strath.ac.uk/portal/files/34898763/Paul\_etal\_wwrf32\_vault\_network.pdf%
+}. 
+
+There are several attributes that have been identified that appear
+consistently within each Complex Adaptive System (CAS), and while
+all are important, four in particular are particularly relevant to
+the topic of this paper, these are%
+\footnote{http://www.health.org.uk/public/cms/75/76/313/2590/Complex\%20adaptive\%20systems\%20research\%20scan.pdf?realName=zv8j6f.pdf%
+}: 
+\begin{itemize}
+\item Distributed Control 
+\item Connectivity 
+\item Emergent Order 
+\item State of Paradox
+\end{itemize}
+It is interesting that highly evolved natural systems, such as ant
+colonies, thought to have evolved over a period of 130 million years,
+do so with distributed control, or put another way, without centralised
+control. It is also intriguing that humans have chosen to ignore the
+lessons that nature has learned over many millennia of forming natural
+systems when it came to designing the architecture of the Internet. 
+
+Another important aspect of natural systems is that they remain connected,
+not only to themselves, but also to their environment. Activity within
+one part of the system ripples through and impacts upon another. Furthermore,
+an emergent order, defined by Chan (2001) as \textquoteleft \dots several
+agents working in parallel\textquotedblright , similar to nerve cells
+in the brain, can be seen to be random behaviour, and that nothing
+within this environment is fixed. It is highly adaptable, thriving
+on the \textquotedblleft competition and co-operation among the agents
+themselves.\textquotedblright{} This ties in with the final point,
+that complex systems are typically in a state of paradox and flux,
+as those which are unable to adapt to their environment will no longer
+exist. As suggested by complex system theorists, such systems are
+at their most effective and productive when they are \textquotedblleft on
+the edge of chaos\textquotedblright %
+\footnote{http://web.mit.edu/esd.83/www/notebook/ComplexityKD.PDF%
+}. As we will see, these are attributes that are inherent within the
+proposed solution.
+
+
+\section{The SAFE network - a new network design}
+
+Taking inspiration from complex natural systems, and specifically
+ant colonies, Scottish engineer David Irvine set about the problem
+of providing a secure data and communications platform and formed
+a company, MaidSafe, to implement his design. The values of the company
+are to provide privacy, security and freedom for all and one of most
+pertinent aspects of the system design has been to remove central
+points of weakness (servers) while removing the need to rely on human
+intervention. 
+
+The system is a fully decentralised, server less, P2P design with
+the objective of providing a self managing global network. The network
+is comprised by the users, who each donate their spare computing resources
+to it and are incentivised via a network token for doing so. Each
+user establishes a node, or vault to which the network assigns its
+own unique address (derived from a cryptographic hash). This address
+is known only by the network%
+\footnote{https://pure.strath.ac.uk/portal/files/34898763/Paul\_etal\_wwrf32\_vault\_network.pdf%
+}.
+
+It is possible to store any type of data (structured and unstructured)
+on each vault, with typically each user running a client which enables
+network requests to be made. Vaults on the network don\textquoteright t
+only serve to store data, they perform multiple functions (persona\textquoteright s)
+including managing not only the integrity of the nodes themselves,
+but also the data chunks contained within the closest 4 nodes. In
+this sense, closest refers to the distance in the networks address
+space as opposed to the geographical distance. The closest nodes will
+continually change as nodes go on and offline. This consensus based
+system (3 out of 4 can make a decision) ensures that each node follows
+the rules of the network and minimises undesirable or malicious behaviour. 
+
+Data is stored on the network in encrypted chunks, so as files are
+saved to the network, they go through a process that MaidSafe term
+Self Encryption. During this process files are separated into chunks
+before being assigned a unique identifier (hash). The chunks are then
+encrypted and stored on vaults at different locations throughout the
+network%
+\footnote{http://maidsafe.net/libraries-encrypt%
+}.
+
+In the interests of data availability, the network retains 4 live
+copies of each data chunk at any time. So as vaults go on and offline,
+these data chunks are dynamically moved around the network. The network
+uses a process of deduplication (each data chunk is assigned it\textquoteright s
+own unique hash) to mitigate storing these replicant copies. Deduplication
+can reduce the amount of data stored by up to 95\%, as a large proportion
+of data is believed to be non-unique%
+\footnote{http://www8.hp.com/h20195/v2/GetPDF.aspx\%2F4AA3-8728ENW.pdf%
+}.
+
+INSERT VAULT DIAGRAM HERE
+
+To compel each node to adhere to the rules of the network a ranking
+scheme has been employed. The ranking score is based on the networks
+ability to successfully retrieve an uncorrupted data chunk from a
+node. This reputation scheme is scored by the 4 nodes closest to the
+data chunk. It is envisioned that ranking vaults in this way will
+promote desirable behaviour and mitigate the potential for gaming
+the network and attacks.
+
+
+\subsection{Data in a hostile environment}
+
+The problems of data surveillance, security and privacy and multi
+faceted and the SAFE network employs a number of features to provide
+a potential solution. By decentralising the storage of data, the SAFE
+network makes it more challenging for Governments to retrieve information.
+The network stores data at random over a huge and constantly changing
+(network churn as users turn their devices off and on) address space
+(2 \ensuremath{\bigwedge}512) and therefore predicting the storage
+location of the data is computationally infeasible. As the data is
+automatically stored as encrypted fragments with each chunk of data
+unlinked to the next, even if an adversary were to locate a piece
+of data it would be very challenging to reconstitute the file, as
+this would require the Xor, obfuscation and hashing process to be
+reversed and even then, only a fraction of the file would have been
+obtained.
+
+Anonymity is also a crucial element of the network. One of the requirements
+full decentralisation creates is that users self authenticate themselves
+onto the network by enabling them to create their own unique key,
+facilitating the SAFE network user to store a value on the network.
+This value contains a passport, which is essentially a variety of
+cryptographic keys for performing different network tasks%
+\footnote{http://maidsafe.net/Whitepapers/pdf/SelfAuthentication.pdf%
+}. In turn, this provides users with the ability to manage their own
+identity for the first time. Authentication is a service provided
+by third parties on the existing Internet. The authentication information,
+which includes details about the user, is typically held in a centralised
+location. Self authentication within the SAFE network provides users
+with anonymity as no entity, MaidSafe included, is aware of any information
+about any of it\textquoteright s users. This feature also ensures
+that access to the network can never be restricted to any individual. 
+
+The (self) encryption process ensures that data on the network is
+always encrypted, whether at rest or in transit and as data is only
+ever decrypted by the client (on the users machine) the encryption
+password cannot be stolen from the network. Combined with decentralised
+data storage, this feature is likely to reduce the high instance of
+data breaches that both companies and individuals currently experience.
+However, it does not mitigate them entirely as reconstituted network
+data can be moved onto an unencrypted memory stick (data is only automatically
+encrypted on the network) and left in a public place or lost. 
+
+Holding data in encrypted form would not only present issues to adversaries,
+companies would also have to adapt. As has been discussed, large Internet
+companies make much of their revenue by mining user data, but what
+if that data was always encrypted when in the network? It is still
+possible to run computations and analyse such data, know as Homomorphic
+Encryption, although it is still to slow and inefficient for practical
+use%
+\footnote{http://www.americanscientist.org/issues/pub/2012/5/alice-and-bob-in-cipherspace%
+}. Until technology is this space develops, companies that currently
+make their revenue via advertising would need to consider alternate
+revenue streams, such as charging a subscription for their service. 
+
+It is also worth considering the robustness that the SAFE network
+provides. As the network is comprised of the resources of its users,
+as opposed to a central location, it cannot be turned off and no kill
+switch exists. Furthermore, the network does not use the Domain Name
+System (DNS) making it impossible to distinguish SAFE network traffic
+from other types, making it impervious to web censoring. Governments
+looking to stop access to the network would need to shut off the entire
+Internet to do so. However, despite many of these advantages, there
+are many challenges that the network needs to overcome to achieve
+wide scale adoption.
+
+
+\subsection{Adoption challenges}
+
+It is proposed that the SAFE network offers a solution to many of
+the security and privacy challenges experienced with the Internet
+today. However, even if the implementation and wide scale adoption
+of the network is assumed, it still leaves many considerations for
+which answers are not yet known. Governments will still want to surveil
+both their citizens and others who they deem to be a potential threat.
+The lack of central vulnerabilities or attack points makes eaves dropping
+more difficult, however, world Governments are well resourced with
+skilled people and with funding. Due to the consensus model in place
+within the vault network (3 out of 4 make a decision), it is thought
+that if an adversary controlled 75\% of the network (by providing
+lots of resource), there is a potential for individual chunks of data
+to be corrupted or deleted. Attacks can also take a non technical
+form. For example, public relations efforts to discredit the network
+to the public, slowing and even halting adoption are also possible.
+
+Removing advertising as a form of payment for online services will
+also require significant adjustment and many companies who experience
+significant success with the status quo will be highly resistant to
+change. Many of these companies are, like world Governments, well
+resourced and highly motivated. If these issues can be overcome, a
+new way of financing the decentralised Internet will need to be established.
+Users will need to start paying for many of the services they currently
+use free from monetary charge. 
+
+Users will still pay for services that they derive value from, maybe
+Google and Facebook would receive revenue from subscription fees?
+However, a fee model would also have potentially negative consequences,
+as many users may stop using services that they refuse to pay for,
+removing many companies and jobs from the sector. Maybe this gap could
+be bridged by introducing more accessible and inclusive payment mechanisms
+that enable a larger percentage of the world population to take part.
+Currencies such as M-Pesa (mobile money) are more popular and within
+reach of much of the population of Africa, as opposed to the traditional
+payment mechanisms of the Internet (Visa, MasterCard and Paypal)%
+\footnote{http://www.theatlantic.com/technology/archive/2014/08/advertising-is-the-internets-original-sin/376041/?single\_page=true%
+}. 
+
+Crypto currencies could also offer part of the solution. Currencies
+such as Bitcoin provide extremely low transaction fees opening up
+the potential for micro payments for all types of content. Content
+owners could be paid a fraction of a bitcoin (the smallest denomination
+is a Satoshi representing 0.00000001 bitcoin) for part of an article
+or for 10 frames of a movie, for example. The charges are so small
+the content consumers may not give this spend much thought, while
+the provider realises income and is motivated to create great content.
+At present bitcoin has some technical challenges around transaction
+speed (it takes 60 minutes to confirm a transaction) that would limit
+it's usefulness. However, other currencies, such as NXT, Stellar,
+Ripple, exist on alternative platforms that do offer the required
+transaction speed, if not the liquidity of bitcoin. In addition to
+integrating alternate currencies onto the SAFE network, it should
+also be noted that the SAFE network also retains its own currency,
+safecoin, which will have sufficient transaction speed and divisibility
+to be a viable solution. 
+
+Clearly there is no obvious answer to the question of how to fund
+a new decentralised Internet, and it is out with the scope of this
+paper to attempt to find one. There are many alternatives and the
+question for users to answer is, would they rather pay for services
+with their freedom or with money?
+
+
+\section*{Conclusion}
+
+The SAFE network potentially provides a solution to those looking
+to enjoy the vast resources of the Internet without many of the downsides,
+which include surveillance from governments and companies. The SAFE
+network also aims to minimise many of the security risks that currently
+exist with the existing Internet. The SAFE network has been implemented
+in a decentralised architecture and has been designed in this way
+to remove the requirement for human intervention from our data, while
+also removing servers, which act as a central point of weakness. 
+\end{document}
