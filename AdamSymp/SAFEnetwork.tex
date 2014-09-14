@@ -1,15 +1,17 @@
 %% LyX 2.1.1 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[twocolumn,english]{article}
+\documentclass[english]{article}
 \usepackage[latin9]{inputenc}
-\usepackage{babel}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+
 \begin{document}
 
-\title{The SAFE Network, a New, Decentralised Internet}
-
-
-\author{Nick Lambert\footnote{nick.lambert@maidsafe.net} and Benjamin Bollen\footnote{benjamin.bollen@maidsafe.net}}
+\title{The SAFE Network\\ a New, Decentralised Internet }
+\date{Octobre 2-3, 2014\\ paper for final symposium of the ADAM project}
+\author{Nick Lambert\footnote{nick.lambert@maidsafe.net}\, and Benjamin Bollen\footnote{benjamin.bollen@maidsafe.net}}
 \maketitle
+
 \begin{abstract}
 The Internet is an incredible resource, enabling the storage and sharing
 of data amongst 40\% of the world\textquoteright s population. However,
@@ -22,7 +24,7 @@ the creation of a network, which provides average users the opportunity
 to retain complete control of their own security and personal information.
 \end{abstract}
 
-\section{Introduction}
+\section{Introduction [UPDATE arguments and sources]}
 
 Computing capability has increased dramatically in recent years, enabling
 the creation of some incredible advancements. % As Moore\textquoteright s law successfully predicted for a number of years, the processing power of computers has doubled every 2 years while the increase in the connectivity of devices is growing exponentially. The so called Internet of Things (IOT - interconnection of identifiable devices), was predicted to rise from an estimated 1.3 billion devices at the end of 2010 to 1.6 billion units worldwide by the end of 2015\footnote{http://www.idate.org/en/News/Digital-Home-Connectable-devices\_693.html}.
@@ -37,25 +39,16 @@ suite of tools than ever before, they have also led to fundamental
 changes in how we communicate with each other. The rise of social
 networking websites, mobile devices and mobile applications has led
 to an explosion in what and how much data we share with each other.
-Zuckerberg\textquoteright s Law, as it has become known, takes inspiration
-from Moore\textquoteright s Law and states that the amount of data
-Facebook users share doubles every year%
-\footnote{http://www.technologyreview.com/review/426438/the-law-of-online-sharing/%
-}. While the maths of Zuckerberg\textquoteright s Law has been called
-into question by some commentators, who helpfully point out that by
-2031 we will be sharing 1,048,576 times more data per day than we
-do at present, the sentiment that we share increasing amounts of data
-is clear.
+%Zuckerberg\textquoteright s Law, as it has become known, takes inspiration from Moore\textquoteright s Law and states that the amount of data Facebook users share doubles every year \footnote{http://www.technologyreview.com/review/426438/the-law-of-online-sharing/}. While the maths of Zuckerberg\textquoteright s Law has been called into question by some commentators, who helpfully point out that by 2031 we will be sharing 1,048,576 times more data per day than we do at present, the sentiment that we share increasing amounts of data is clear.
 
 This technological evolution is not only affecting how much data we
 share, it is also heavily impacting upon where consumers store data.
 Market research agency Gartner predict that users will store 36\%
 of their content online by 2016, a sharp increase from an estimated
 7\% in 2011%
-\footnote{http://www.datacenterknowledge.com/archives/2012/07/02/gartner-consumers-will-store-more-in-the-cloud/%
-}. Gartner goes onto suggest that the average household stored 464
+\footnote{http://www.datacenterknowledge.com/archives/2012/07/02/gartner-consumers-will-store-more-in-the-cloud/}. Gartner goes on to suggest that the average household stored 464
 GB online in 2011 and is forecast to rise to 3.3 TB by 2016, driven
-by an increased desire to share and by consumers use of multiple devices
+by an increased desire to share and by consumers' use of multiple devices
 (as storing online enables them to access all their data across all
 their devices).
 
@@ -63,35 +56,23 @@ While these enhancements take technological ease of use to the next
 level, these convenient and often free services come at a price. The
 price is freedom. Today\textquoteright s centralised Internet architecture,
 where centralised and managed intermediaries (servers) store and provide
-access to information, they do so in an inherently insecure way. We also
+access to information, do so in an inherently insecure way. We also
 experience an ever increasing number of concerns over the privacy
 of our data and this paper argues that it is in fact human involvement,
 and the existing client server architecture\textquoteright s requirement
 for human organisation, that leads to these security and privacy issues.
-MaidSafe proposes and implements a new architecture that eliminates human involvement in private data.  Hence we enable 
+
+MaidSafe proposes and implements a new, decentralised architecture that eliminates human involvement in private data.  Hence we enable users to enjoy the significant resources of the Internet, without selling out on their privacy to do so.
 
 
 \section{The Internet is broken}
 
-The fact that the Internet was not designed from the ground up to
-cope with the current demands is, at the very least, a strong contributing
-factor that has led to some of the issues that this paper attempts
-to address. It is evident looking back, that the current volume of
-2.8 billion regular users was not anticipated%
-\footnote{http://www.internetworldstats.com/stats.htm%
-}. In fact, the original design of ARPANET (the precursor to the modern
-Internet) is much closer the decentralised architecture that is advocated
-here. When developing a data transmission protocol more suited to
-the now planned open architecture networking environment, one of Kahn\textquoteright s
-(a key architect of ARPANET) fundamental rules was that \textquotedblleft \dots there
-would be no global control at the operations level\textquotedblright %
-\footnote{http://www.internetsociety.org/internet/what-internet/history-internet/brief-history-internet\#f2%
-}. However, some of these principles took a back seat as other considerations
-took priority.
+The fact that the Internet has grown beyond the expected use cases of the original design is, at the very least, a strong motivation to consider a renewed architecture. It is evident looking back, that the current volume of
+2.8 billion regular users\footnote{http://www.internetworldstats.com/stats.htm} was not anticipated, nor was the original design of ARPANET centralising. In fact, one of Bob Kahn\textquoteright s fundamental rules, when designing the transmission control protocol (TCP), was that there would be no global control at the operations level\footnote{http://www.internetsociety.org/internet/what-internet/history-internet/brief-history-internet}. However, some of these principles took a back seat as other considerations took priority.
 
 It was originally envisioned, back in the late 1960\textquoteright s,
 that there would be multiple independent networks and as Leiner et
-al suggested \textquotedblleft \dots{} 256 networks would be sufficient
+al suggested \textquotedblleft 256 networks would be sufficient
 for the foreseeable future'', was clearly in need of consideration
 when Local Area Networks (LANS) began to appear in the late 1970\textquoteright s%
 \footnote{http://www.internetsociety.org/internet/what-internet/history-internet/brief-history-internet\#f2%
@@ -105,10 +86,8 @@ a centralising of it\textquoteright s architecture, with the introduction
 of \textquotedblleft managed interconnection points\textquotedblright{}
 by US Federal agencies. 
 
-This enabled more \dots \textquotedblright rapid configuration robustness
-and better scaling to be accommodated\textquotedblright %
-\footnote{http://www.internetsociety.org/internet/what-internet/history-internet/brief-history-internet\#f2%
-}. As the National Science Foundation (NSF) started to privatise and
+This enabled more \textquotedblleft rapid configuration robustness
+and better scaling to be accommodated\textquotedblright \footnote{http://www.internetsociety.org/internet/what-internet/history-internet/brief-history-internet}. As the National Science Foundation (NSF) started to privatise and
 commercialise the program in 1995, the use of regional networks via
 private long haul carriers led to the information superhighway, envisioned
 by Tim Berners-Lee, that we are familiar with today. However, as the
@@ -118,129 +97,75 @@ upon the way the world\textquoteright s citizens manage data, it is
 having a much more profound impact on society as a whole. 
 
 
-\subsection{Government Control }
+\subsection{Government Control}
 
-Governments spying and eavesdropping is nothing new%
-\footnote{http://www.bbc.co.uk/news/magazine-24749166%
-}. Letters have been intercepted for centuries and spy networks have
-existed for millennia. In recent times, attention has shifted from
+Governments spying and eavesdropping is nothing new\footnote{http://www.bbc.co.uk/news/magazine-24749166}. Letters have been intercepted for centuries and spy networks have existed for millennia. In recent times, attention has shifted from
 telegrams to email. Within the US, Project Shamrock, established after
 the Second World War, legally accessed all the cables of RCA Global,
 ITT, and Western Union. Minaret was another project, established in
 the 1960s to focus on intelligence gathering amongst domestic targets%
 \footnote{http://www.vice.com/read/a-brief-history-of-the-united-states-governments-warrentless-spying%
 }. Despite both programs being exposed and subsequently shelved, they
-were the pre cursor to ECHELON (an ongoing surveillance operation
-still not officially recognised by the NSA), that utilises automatic
-keyword searching of faxes, telex and emails%
-\footnote{http://fas.org/irp/program/process/rapport\_echelon\_en.pdf%
-}. 
-
-The now infamous Snowden files brought modern mass surveillance techniques
-much more into the public eye. These revelations demonstrated that
-intelligence agencies were able to access data at will from some of
+were the pre-cursor to ECHELON, that utilises automatic
+keyword searching of faxes, telex and emails.  Back in 2001 the European Parliament saw the reach of the ECHELON program limited: 
+\begin{quote}
+[\dots] however extensive the resources and capabilities for the interception of communications may be, the extremely high volume of traffic makes exhaustive, detailed monitoring of all communications impossible in practice.
+\end{quote}
+ 
+Technological advance over the past decade has refuted the assumption of this report.  Centralisation driven by cloud services has facilitated the impact of surveillance programs. The Snowden revelations demonstrated that
+intelligence agencies are able to access data at will from some of
 the world\textquoteright s largest technology companies (PRISM) and
 by tapping data direct from fibre optic cables (TEMPORA, FAIRVIEW,
-STORMBREW, OAKSTAR and BLARNEY)%
-\footnote{http://www.theguardian.com/world/the-nsa-files%
-}. Although denied by almost all technology companies, NSA slides suggest
+STORMBREW, OAKSTAR and BLARNEY)\cite{guardianNSA}. Although denied by almost all technology companies, NSA slides suggest
 they were complicit, willing or otherwise, in helping to collect this
-data%
-\footnote{http://www.theguardian.com/world/2013/jun/06/us-tech-giants-nsa-data%
-}.
+data\cite{guardian13}.
 
 This paper proposes that the existing centralised architecture (in
 the case of PRISM) and the involvement of humans make these privacy
-intrusions possible. All existing networks require that users are
-authenticated onto them and while this process is automated, the credentials
+intrusions possible. All existing services require that users are
+authenticate onto them.  While this process is automated, the credentials
 of the users are stored in centralised locations. Furthermore, the
 encryption keys are held by the service provider, enabling them to
-access to their users data%
-\footnote{http://www.techrepublic.com/blog/it-security/does-your-cloud-storage-provider-hold-the-keys-to-your-data/%
-}. While client side encryption technology is becoming more widely
-available, it is not typically inherent within the \textquoteleft off
-the shelf \textquoteleft product. It is also worth noting that US
-based companies are legally obliged to comply with Government agency
+access to their users data\cite{lambert12}. While client side encryption technology is available, it is not standard practice to implement it in end-user products. Additionally most cloud service companies are based within the US and as such are legally obliged to comply with Government agency
 requests for user data.
-
-Libertarians, civil rights groups and privacy advocates have unsurprisingly
-requested tougher laws to limit the surveillance powers of governments%
-\footnote{http://www.hrw.org/news/2014/06/18/joint-letter-re-usa-freedom-act%
-}. However, the long history of government eavesdropping suggests that
-this is not an issue that will be fixed by legislation alone. Many
-commentators believe that the Governments cannot be trusted to push
-through the appropriate level of legislation that not only protects
-consumers, but is also prepared to operate under these rules%
-\footnote{http://www.theguardian.com/media/2013/jan/06/hacked-off-government-leveson-proposals%
-}.
 
 Interestingly, much of this monitoring conflicts with the Universal
 Declaration of Human Rights that the US and UK Government and their
-allies (Canada, Australia and New Zealand - the so called 5 eyes)
-have signed up to%
-\footnote{http://www.bbc.co.uk/news/world-europe-24715168%
-}. Of the 30 basic rights established within the declaration, article
-12 is the most relevant to the subject matter of this paper and states%
-\footnote{http://www.un.org/en/documents/udhr/%
-}:
+allies have signed up to in 1948. Article 12 states\cite{unhrd12}
 \begin{quote}
 \textquotedblleft No one shall be subjected to arbitrary interference
 with his privacy, family, home or correspondence, nor to attacks upon
 his honour and reputation. Everyone has the right to the protection
-of the law against such interference or attacks.\textquotedblright{}
+of the law against such interference or attacks.\textquotedblright
 \end{quote}
 The evidence suggests that, over a lengthy period, these Governments
-have chosen to ignore a fundamental human right, an individuals right
+have chosen to ignore a fundamental human right, the individuals right
 to privacy. However, it is not just nations that choose to invade
-our privacy, technology companies also take advantage of the inefficiencies
-of centralised Internet architecture. The difference is that their
-motivations are not power, as it is with governments, but profit. 
-
+our privacy.  As the internet was designed without inherent privacy protections at protocol level, technology companies also take advantage of the centralised Internet architecture to profit from private data.
 
 \subsection{Surveillance as a business model }
 
-Security expert Bruce Scheier has proposed the notion that \textquotedblleft surveillance
-is the business model of the Internet\textquotedblright %
-\footnote{https://www.schneier.com/blog/archives/2013/11/surveillance\_as\_1.html%
-}. This suggestion is based on the fact that many large technology
-companies generate the over whelming majority of their revenue by
+Security expert Bruce Schneier notably stated at SOURCE conference in Boston:\cite{boston14}
+\begin{quote}
+\textquotedblleft Surveillance is the business model of the Internet. We build systems that spy on people in exchange for services. Corporations call it marketing.\textquotedblright
+\end{quote}
+This suggestion is based on the fact that many large technology
+companies generate the overwhelming majority of their revenue by
 mining their users data. The revenue model of companies like Google
-and Facebook is to provide their core service(s) free from monetary
+and Facebook is to provide their core services free from monetary
 charge and then sell access to their users to companies who pay to
-advertise on their network. Google generated \$50.5 billion in advertising
-revenue during 2013 which equated to 91\% of their yearly sales %
-\footnote{https://investor.google.com/financial/tables.html%
-}. Similarly, Facebook delivered advertising revenue of over \$6.9
+advertise on their platform. Google generated \$50.5~billion in advertising
+revenue during 2013 which equated to 91\% of their yearly sales\cite{google13}. Similarly, Facebook delivered advertising revenue of over \$6.9
 billion to their investors over the same period, equivalent to 89\%
-of their income%
-\footnote{http://investor.fb.com/releasedetail.cfm?ReleaseID=821954%
-}. 
-
-This process has become highly refined and advertisers are able to
-place their own adverts and select specific demographics of users
-they wish to target, minimising or even eliminating the wastage experienced
-with traditional media. Each advertiser is then provided with a detailed
-breakdown of the results of their campaign in real time. These large
-technology companies are able to deliver such a service by knowing
-a significant amount of information about their users. Depending on
-their privacy settings and what devices they use, Internet companies
-could know; all user contacts, web searches, where you have been and
-who your friends are. Some campaigners have suggested that, in the
-case of Facebook, only 29\% of your personal information is available
-through the tools within the site, giving rise to a concern about
-what they are doing with the rest of the data%
-\footnote{http://www.theguardian.com/technology/2012/apr/22/me-and-my-data-internet-giants.%
-}.
+of their income\cite{facebook13}. 
 
 Ethan Zuckerman (Director of the Center for Civic Media at MIT and
 principal research scientist at MIT\textquoteright s Media Lab) has
-suggested that:
+suggested that:\cite{zuckerman14}
 \begin{quote}
 \textquotedblleft The fallen state of our Internet is a direct, if
 unintentional, consequence of choosing advertising as the default
-model to support online content and services%
-\footnote{http://www.theatlantic.com/technology/archive/2014/08/advertising-is-the-internets-original-sin/376041/?single\_page=true%
-}.\textquotedblright{} 
+model to support online content and services.\textquotedblright 
 \end{quote}
 Zuckerman goes onto argue that Facebook, Google and others, are under
 more and more pressure from shareholders to sell more and more adverts.
@@ -604,5 +529,28 @@ network also aims to minimise many of the security risks that currently
 exist with the existing Internet. The SAFE network has been implemented
 in a decentralised architecture and has been designed in this way
 to remove the requirement for human intervention from our data, while
-also removing servers, which act as a central point of weakness. 
+also removing servers, which act as a central point of weakness.
+
+
+\begin{thebibliography}{9}
+
+\bibitem{Schmid01} G. Schmid, \emph{On the existence of a global system for the interception of private and commercial communications (ECHELON interception system)}, \href{http://www.europarl.europa.eu/sides/getDoc.do?pubRef=-//EP//TEXT+REPORT+A5-2001-0264+0+DOC+XML+V0//EN}{European Parliament report PE 305.391, A5-0264/2001, July 2001}
+
+\bibitem{guardianNSA} The Guardian, \emph{The NSA Files},\\ \href{http://www.theguardian.com/world/the-nsa-files}{www.theguardian.com/world/the-nsa-files}
+
+\bibitem{guardian13} G. Greenwald and E. MacASkill, \emph{NSA Prism program taps in to user data of Apple, Google and others}, \href{http://www.theguardian.com/world/2013/jun/06/us-tech-giants-nsa-data}{The Guardian, June 7 2013}
+
+\bibitem{lambert12} P. Lambert, \emph{Does your cloud storage provider hold the keys to your data}, \href{http://www.techrepublic.com/blog/it-security/does-your-cloud-storage-provider-hold-the-keys-to-your-data}{TechRepublic.com, April 9, 2012}
+
+\bibitem{unhrd12} United Nations General Assembly, \emph{The Universal Declaration of Human Rights}, \href{http://www.un.org/en/documents/udhr/}{Human Rights Declaration, article 12, December 10, 1948}
+
+\bibitem{boston14} SOURCE conference Boston 14, \emph{keynote speech} by Bruce Schneier, \href{http://sourceconference.com/boston/}{Boston, April 2014}; F.Y. Rashid \emph{Surveillance is the Business Model of the Internet: Bruce Schneier}, \href{http://www.securityweek.com/surveillance-business-model-internet-bruce-schneier}{Security Week April 9, 2014}
+
+\bibitem{google13} Google Investor Relations, \emph{Google's Income Statement Information}, \href{https://investor.google.com/financial/2013/tables.html}{Financial Tables 2013}
+
+\bibitem{facebook13} Facebook Investor Relations, \emph{Facebook reports Fourth Quarter and Full Year 2013 Results}, \href{http://investor.fb.com/releasedetail.cfm?ReleaseID=821954}{Fourth Quarter and Full Year 2013 Financial Summary}
+
+\bibitem{zuckerman14} E. Zuckerman, \emph{The Internet's Original Sin}
+
+\end{thebibliography}
 \end{document}
