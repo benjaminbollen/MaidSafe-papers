@@ -2,14 +2,16 @@
 %% Do not edit unless you really know what you are doing.
 \documentclass[twocolumn,english]{article}
 \usepackage[latin9]{inputenc}
-\usepackage{babel}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+
 \begin{document}
 
-\title{The SAFE Network, a New, Decentralised Internet}
-
-
-\author{Nick Lambert\footnote{nick.lambert@maidsafe.net} and Benjamin Bollen\footnote{benjamin.bollen@maidsafe.net}}
+\title{The SAFE Network\\ a New, Decentralised Internet }
+\date{Octobre 2-3, 2014\\ paper for final symposium of the ADAM project}
+\author{Nick Lambert\footnote{nick.lambert@maidsafe.net}\, and Benjamin Bollen\footnote{benjamin.bollen@maidsafe.net}}
 \maketitle
+
 \begin{abstract}
 The Internet is an incredible resource, enabling the storage and sharing
 of data amongst 40\% of the world\textquoteright s population. However,
@@ -66,12 +68,11 @@ MaidSafe proposes and implements a new, decentralised architecture that eliminat
 \section{The Internet is broken}
 
 The fact that the Internet has grown beyond the expected use cases of the original design is, at the very least, a strong motivation to consider a renewed architecture. It is evident looking back, that the current volume of
-2.8 billion regular users\footnote{http://www.internetworldstats.com/stats.htm} was not anticipated, nor was the original design of ARPANET centralising. In fact, one of Bob Kahn\textquoteright s fundamental rules, when designing the transmission control protocol (TCP), was that \textquotedblleft \dots there would be no global control at the operations level\textquotedblright\footnote{http://www.internetsociety.org/internet/what-internet/history-internet/brief-history-internet}. However, some of these principles took a back seat as other considerations
-took priority.
+2.8 billion regular users\footnote{http://www.internetworldstats.com/stats.htm} was not anticipated, nor was the original design of ARPANET centralising. In fact, one of Bob Kahn\textquoteright s fundamental rules, when designing the transmission control protocol (TCP), was that there would be no global control at the operations level\footnote{http://www.internetsociety.org/internet/what-internet/history-internet/brief-history-internet}. However, some of these principles took a back seat as other considerations took priority.
 
 It was originally envisioned, back in the late 1960\textquoteright s,
 that there would be multiple independent networks and as Leiner et
-al suggested \textquotedblleft \dots{} 256 networks would be sufficient
+al suggested \textquotedblleft 256 networks would be sufficient
 for the foreseeable future'', was clearly in need of consideration
 when Local Area Networks (LANS) began to appear in the late 1970\textquoteright s%
 \footnote{http://www.internetsociety.org/internet/what-internet/history-internet/brief-history-internet\#f2%
@@ -85,10 +86,8 @@ a centralising of it\textquoteright s architecture, with the introduction
 of \textquotedblleft managed interconnection points\textquotedblright{}
 by US Federal agencies. 
 
-This enabled more \dots \textquotedblright rapid configuration robustness
-and better scaling to be accommodated\textquotedblright %
-\footnote{http://www.internetsociety.org/internet/what-internet/history-internet/brief-history-internet\#f2%
-}. As the National Science Foundation (NSF) started to privatise and
+This enabled more \textquotedblleft rapid configuration robustness
+and better scaling to be accommodated\textquotedblright \footnote{http://www.internetsociety.org/internet/what-internet/history-internet/brief-history-internet}. As the National Science Foundation (NSF) started to privatise and
 commercialise the program in 1995, the use of regional networks via
 private long haul carriers led to the information superhighway, envisioned
 by Tim Berners-Lee, that we are familiar with today. However, as the
@@ -98,44 +97,36 @@ upon the way the world\textquoteright s citizens manage data, it is
 having a much more profound impact on society as a whole. 
 
 
-\subsection{Government Control }
+\subsection{Government Control}
 
-Governments spying and eavesdropping is nothing new%
-\footnote{http://www.bbc.co.uk/news/magazine-24749166%
-}. Letters have been intercepted for centuries and spy networks have
-existed for millennia. In recent times, attention has shifted from
+Governments spying and eavesdropping is nothing new\footnote{http://www.bbc.co.uk/news/magazine-24749166}. Letters have been intercepted for centuries and spy networks have existed for millennia. In recent times, attention has shifted from
 telegrams to email. Within the US, Project Shamrock, established after
 the Second World War, legally accessed all the cables of RCA Global,
 ITT, and Western Union. Minaret was another project, established in
 the 1960s to focus on intelligence gathering amongst domestic targets%
 \footnote{http://www.vice.com/read/a-brief-history-of-the-united-states-governments-warrentless-spying%
 }. Despite both programs being exposed and subsequently shelved, they
-were the pre cursor to ECHELON (an ongoing surveillance operation
-still not officially recognised by the NSA), that utilises automatic
-keyword searching of faxes, telex and emails%
-\footnote{http://fas.org/irp/program/process/rapport\_echelon\_en.pdf%
-}. 
-
-The now infamous Snowden files brought modern mass surveillance techniques
-much more into the public eye. These revelations demonstrated that
-intelligence agencies were able to access data at will from some of
+were the pre-cursor to ECHELON, that utilises automatic
+keyword searching of faxes, telex and emails.  Back in 2001 the European Parliament saw the reach of the ECHELON program limited as 
+\begin{quote}
+\dots however extensive the resources and capabilities for the interception of communications may be, the extremely high volume of traffic makes exhaustive, detailed monitoring of all communications impossible in practice.
+\end{quote}
+ 
+Technological advance over the past decade has refuted the assumption of this report.  Centralisation driven by cloud services has facilitated the impact of surveillance programs. The Snowden revelations demonstrated that
+intelligence agencies are able to access data at will from some of
 the world\textquoteright s largest technology companies (PRISM) and
 by tapping data direct from fibre optic cables (TEMPORA, FAIRVIEW,
-STORMBREW, OAKSTAR and BLARNEY)%
-\footnote{http://www.theguardian.com/world/the-nsa-files%
-}. Although denied by almost all technology companies, NSA slides suggest
+STORMBREW, OAKSTAR and BLARNEY)\cite{guardianNSA}. Although denied by almost all technology companies, NSA slides suggest
 they were complicit, willing or otherwise, in helping to collect this
-data%
-\footnote{http://www.theguardian.com/world/2013/jun/06/us-tech-giants-nsa-data%
-}.
+data\cite{guardian13}.
 
 This paper proposes that the existing centralised architecture (in
 the case of PRISM) and the involvement of humans make these privacy
 intrusions possible. All existing networks require that users are
-authenticated onto them and while this process is automated, the credentials
+authenticate onto them.  While this process is automated, the credentials
 of the users are stored in centralised locations. Furthermore, the
 encryption keys are held by the service provider, enabling them to
-access to their users data%
+access to their users data\cite{lambert12}%
 \footnote{http://www.techrepublic.com/blog/it-security/does-your-cloud-storage-provider-hold-the-keys-to-your-data/%
 }. While client side encryption technology is becoming more widely
 available, it is not typically inherent within the \textquoteleft off
@@ -584,5 +575,18 @@ network also aims to minimise many of the security risks that currently
 exist with the existing Internet. The SAFE network has been implemented
 in a decentralised architecture and has been designed in this way
 to remove the requirement for human intervention from our data, while
-also removing servers, which act as a central point of weakness. 
+also removing servers, which act as a central point of weakness.
+
+
+\begin{thebibliography}{9}
+
+\bibitem{Schmid01} G. Schmid, \emph{On the existence of a global system for the interception of private and commercial communications (ECHELON interception system)}, \href{http://www.europarl.europa.eu/sides/getDoc.do?pubRef=-//EP//TEXT+REPORT+A5-2001-0264+0+DOC+XML+V0//EN}{European Parliament report PE 305.391, A5-0264/2001, July 2001}
+
+\bibitem{guardianNSA} The Guardian, \emph{The NSA Files},\\ \href{http://www.theguardian.com/world/the-nsa-files}{www.theguardian.com/world/the-nsa-files}
+
+\bibitem{guardian13} G. Greenwald and E. MacASkill, \emph{NSA Prism program taps in to user data of Apple, Google and others}, \href{http://www.theguardian.com/world/2013/jun/06/us-tech-giants-nsa-data}{The Guardian, June 7 2013}
+
+\bibitem{lambert12} P. Lambert, \emph{Does your cloud storage provider hold the keys to your data}, \href{http://www.techrepublic.com/blog/it-security/does-your-cloud-storage-provider-hold-the-keys-to-your-data}{TechRepublic.com, April 9, 2012}
+
+\end{thebibliography}
 \end{document}
