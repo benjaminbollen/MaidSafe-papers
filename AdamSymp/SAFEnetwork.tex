@@ -1,6 +1,6 @@
 %% LyX 2.1.1 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[twocolumn,english]{article}
+\documentclass[english]{article}
 \usepackage[latin9]{inputenc}
 \usepackage[english]{babel}
 \usepackage{hyperref}
@@ -107,9 +107,9 @@ the 1960s to focus on intelligence gathering amongst domestic targets%
 \footnote{http://www.vice.com/read/a-brief-history-of-the-united-states-governments-warrentless-spying%
 }. Despite both programs being exposed and subsequently shelved, they
 were the pre-cursor to ECHELON, that utilises automatic
-keyword searching of faxes, telex and emails.  Back in 2001 the European Parliament saw the reach of the ECHELON program limited as 
+keyword searching of faxes, telex and emails.  Back in 2001 the European Parliament saw the reach of the ECHELON program limited: 
 \begin{quote}
-\dots however extensive the resources and capabilities for the interception of communications may be, the extremely high volume of traffic makes exhaustive, detailed monitoring of all communications impossible in practice.
+[\dots] however extensive the resources and capabilities for the interception of communications may be, the extremely high volume of traffic makes exhaustive, detailed monitoring of all communications impossible in practice.
 \end{quote}
  
 Technological advance over the past decade has refuted the assumption of this report.  Centralisation driven by cloud services has facilitated the impact of surveillance programs. The Snowden revelations demonstrated that
@@ -122,96 +122,50 @@ data\cite{guardian13}.
 
 This paper proposes that the existing centralised architecture (in
 the case of PRISM) and the involvement of humans make these privacy
-intrusions possible. All existing networks require that users are
+intrusions possible. All existing services require that users are
 authenticate onto them.  While this process is automated, the credentials
 of the users are stored in centralised locations. Furthermore, the
 encryption keys are held by the service provider, enabling them to
-access to their users data\cite{lambert12}%
-\footnote{http://www.techrepublic.com/blog/it-security/does-your-cloud-storage-provider-hold-the-keys-to-your-data/%
-}. While client side encryption technology is becoming more widely
-available, it is not typically inherent within the \textquoteleft off
-the shelf \textquoteleft product. It is also worth noting that US
-based companies are legally obliged to comply with Government agency
+access to their users data\cite{lambert12}. While client side encryption technology is available, it is not standard practice to implement it in end-user products. Additionally most cloud service companies are based within the US and as such are legally obliged to comply with Government agency
 requests for user data.
-
-Libertarians, civil rights groups and privacy advocates have unsurprisingly
-requested tougher laws to limit the surveillance powers of governments%
-\footnote{http://www.hrw.org/news/2014/06/18/joint-letter-re-usa-freedom-act%
-}. However, the long history of government eavesdropping suggests that
-this is not an issue that will be fixed by legislation alone. Many
-commentators believe that the Governments cannot be trusted to push
-through the appropriate level of legislation that not only protects
-consumers, but is also prepared to operate under these rules%
-\footnote{http://www.theguardian.com/media/2013/jan/06/hacked-off-government-leveson-proposals%
-}.
 
 Interestingly, much of this monitoring conflicts with the Universal
 Declaration of Human Rights that the US and UK Government and their
-allies (Canada, Australia and New Zealand - the so called 5 eyes)
-have signed up to%
-\footnote{http://www.bbc.co.uk/news/world-europe-24715168%
-}. Of the 30 basic rights established within the declaration, article
-12 is the most relevant to the subject matter of this paper and states%
-\footnote{http://www.un.org/en/documents/udhr/%
-}:
+allies have signed up to in 1948. Article 12 states\cite{unhrd12}
 \begin{quote}
 \textquotedblleft No one shall be subjected to arbitrary interference
 with his privacy, family, home or correspondence, nor to attacks upon
 his honour and reputation. Everyone has the right to the protection
-of the law against such interference or attacks.\textquotedblright{}
+of the law against such interference or attacks.\textquotedblright
 \end{quote}
 The evidence suggests that, over a lengthy period, these Governments
-have chosen to ignore a fundamental human right, an individuals right
+have chosen to ignore a fundamental human right, the individuals right
 to privacy. However, it is not just nations that choose to invade
-our privacy, technology companies also take advantage of the inefficiencies
-of centralised Internet architecture. The difference is that their
-motivations are not power, as it is with governments, but profit. 
-
+our privacy.  As the internet was designed without inherent privacy protections at protocol level, technology companies also take advantage of the centralised Internet architecture to profit from private data.
 
 \subsection{Surveillance as a business model }
 
-Security expert Bruce Scheier has proposed the notion that \textquotedblleft surveillance
-is the business model of the Internet\textquotedblright %
-\footnote{https://www.schneier.com/blog/archives/2013/11/surveillance\_as\_1.html%
-}. This suggestion is based on the fact that many large technology
-companies generate the over whelming majority of their revenue by
+Security expert Bruce Schneier notably stated at SOURCE conference in Boston:\cite{boston14}
+\begin{quote}
+\textquotedblleft Surveillance is the business model of the Internet. We build systems that spy on people in exchange for services. Corporations call it marketing.\textquotedblright
+\end{quote}
+This suggestion is based on the fact that many large technology
+companies generate the overwhelming majority of their revenue by
 mining their users data. The revenue model of companies like Google
-and Facebook is to provide their core service(s) free from monetary
+and Facebook is to provide their core services free from monetary
 charge and then sell access to their users to companies who pay to
-advertise on their network. Google generated \$50.5 billion in advertising
-revenue during 2013 which equated to 91\% of their yearly sales %
-\footnote{https://investor.google.com/financial/tables.html%
-}. Similarly, Facebook delivered advertising revenue of over \$6.9
+advertise on their platform. Google generated \$50.5~billion in advertising
+revenue during 2013 which equated to 91\% of their yearly sales\cite{google13}. Similarly, Facebook delivered advertising revenue of over \$6.9
 billion to their investors over the same period, equivalent to 89\%
-of their income%
-\footnote{http://investor.fb.com/releasedetail.cfm?ReleaseID=821954%
-}. 
-
-This process has become highly refined and advertisers are able to
-place their own adverts and select specific demographics of users
-they wish to target, minimising or even eliminating the wastage experienced
-with traditional media. Each advertiser is then provided with a detailed
-breakdown of the results of their campaign in real time. These large
-technology companies are able to deliver such a service by knowing
-a significant amount of information about their users. Depending on
-their privacy settings and what devices they use, Internet companies
-could know; all user contacts, web searches, where you have been and
-who your friends are. Some campaigners have suggested that, in the
-case of Facebook, only 29\% of your personal information is available
-through the tools within the site, giving rise to a concern about
-what they are doing with the rest of the data%
-\footnote{http://www.theguardian.com/technology/2012/apr/22/me-and-my-data-internet-giants.%
-}.
+of their income\cite{facebook13}. 
 
 Ethan Zuckerman (Director of the Center for Civic Media at MIT and
 principal research scientist at MIT\textquoteright s Media Lab) has
-suggested that:
+suggested that:\cite{zuckerman14}
 \begin{quote}
 \textquotedblleft The fallen state of our Internet is a direct, if
 unintentional, consequence of choosing advertising as the default
-model to support online content and services%
-\footnote{http://www.theatlantic.com/technology/archive/2014/08/advertising-is-the-internets-original-sin/376041/?single\_page=true%
-}.\textquotedblright{} 
+model to support online content and services.\textquotedblright 
 \end{quote}
 Zuckerman goes onto argue that Facebook, Google and others, are under
 more and more pressure from shareholders to sell more and more adverts.
@@ -587,6 +541,16 @@ also removing servers, which act as a central point of weakness.
 \bibitem{guardian13} G. Greenwald and E. MacASkill, \emph{NSA Prism program taps in to user data of Apple, Google and others}, \href{http://www.theguardian.com/world/2013/jun/06/us-tech-giants-nsa-data}{The Guardian, June 7 2013}
 
 \bibitem{lambert12} P. Lambert, \emph{Does your cloud storage provider hold the keys to your data}, \href{http://www.techrepublic.com/blog/it-security/does-your-cloud-storage-provider-hold-the-keys-to-your-data}{TechRepublic.com, April 9, 2012}
+
+\bibitem{unhrd12} United Nations General Assembly, \emph{The Universal Declaration of Human Rights}, \href{http://www.un.org/en/documents/udhr/}{Human Rights Declaration, article 12, December 10, 1948}
+
+\bibitem{boston14} SOURCE conference Boston 14, \emph{keynote speech} by Bruce Schneier, \href{http://sourceconference.com/boston/}{Boston, April 2014}; F.Y. Rashid \emph{Surveillance is the Business Model of the Internet: Bruce Schneier}, \href{http://www.securityweek.com/surveillance-business-model-internet-bruce-schneier}{Security Week April 9, 2014}
+
+\bibitem{google13} Google Investor Relations, \emph{Google's Income Statement Information}, \href{https://investor.google.com/financial/2013/tables.html}{Financial Tables 2013}
+
+\bibitem{facebook13} Facebook Investor Relations, \emph{Facebook reports Fourth Quarter and Full Year 2013 Results}, \href{http://investor.fb.com/releasedetail.cfm?ReleaseID=821954}{Fourth Quarter and Full Year 2013 Financial Summary}
+
+\bibitem{zuckerman14} E. Zuckerman, \emph{The Internet's Original Sin}
 
 \end{thebibliography}
 \end{document}
