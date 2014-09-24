@@ -2,11 +2,12 @@
 \usepackage[latin9]{inputenc}
 \usepackage[english]{babel}
 \usepackage{hyperref}
+%\usepackage{wrapfig}
 \usepackage{graphicx}
 
 \begin{document}
 
-\title{The SAFE Network\\ a New, Decentralised Internet [DRAFT]}
+\title{The SAFE Network\\ a New, Decentralised Internet}
 \date{October 2-3, 2014\\ Paper for the final symposium of the ADAM project}
 \author{Nick Lambert\footnote{nick.lambert@maidsafe.net}\, and Benjamin Bollen\footnote{benjamin.bollen@maidsafe.net}}
 \maketitle
@@ -55,7 +56,7 @@ of our data. This paper argues that it is in fact human involvement,
 and the existing client server architecture\textquoteright s requirement
 for human organisation, that leads to these security and privacy issues.
 
-MaidSafe proposes and implements a new, decentralised architecture that eliminates human involvement in private data.  MaidSafe enables users to enjoy the significant resources of the Internet, while improving and protecting their experience and privacy.
+MaidSafe.net, a Scottish company founded for these goals, proposes and implements a new, decentralised architecture that eliminates human involvement in private data.  MaidSafe will enable users to enjoy the significant resources of the Internet, while improving and protecting their experience and privacy.
 
 
 \section{The Internet is broken}
@@ -63,15 +64,15 @@ MaidSafe proposes and implements a new, decentralised architecture that eliminat
 The fact that the Internet has grown beyond the expected use cases of the original design is, at the very least, a strong motivation to consider a renewed architecture. It is evident looking back that the current volume of
 2.8 billion regular users\cite{mwg13} was not anticipated, nor was the original design of ARPANET centralising. In fact, one of Bob Kahn\textquoteright s fundamental rules, when designing the transmission control protocol (TCP), was that there would be no global control at the operations level\cite{isocBriefHistory}. However, some of these principles took a back seat as other considerations took priority.
 
-It was originally envisioned, back in the late 1960\textquoteright s,
+It was originally envisioned, back in the late 1960s,
 that there would be multiple independent networks and as Leiner et
 al suggested \textquotedblleft 256 networks would be sufficient
 for the foreseeable future''. This was clearly in need of consideration
-when Local Area Networks (LANS) began to appear in the late 1970\textquoteright s. The addition of workstations, PC\textquoteright s and Ethernet technology, in addition to LANs, also led to changes in the original architecture
+when Local Area Networks (LANS) began to appear in the late 1970s. The addition of workstations, PCs and Ethernet technology, in addition to LANs, also led to changes in the original architecture
 concepts. The rapid and unforeseen rise in the Internet\textquoteright s
 growth introduced scaling issues\footnote{The single algorithm employed with
 all routers could not cope with demand.} that were dealt with by the
-implementation of a hierarchal routing model. This approach led to
+implementation of a hierarchical routing model. This approach led to
 a centralising of the architecture, with the introduction
 of \textquotedblleft managed interconnection points\textquotedblright{}
 by US Federal agencies. 
@@ -112,7 +113,7 @@ This paper proposes that the existing centralised architecture and the involveme
 intrusions possible. All existing services require that users authenticate themselves in order to gain access.  While this process is automated, the credentials
 of the users are stored in centralised locations. Furthermore, the
 encryption keys are held by the service provider, enabling them to
-access their users data\cite{lambert12}. While client side encryption technology is available, it is not standard practice to implement it in end-user products. Additionally, most cloud service companies are based within the US and as such are legally obliged to comply with Government agency
+access their users' data\cite{lambert12}. While client side encryption technology is available, it is not standard practice to implement it in end-user products. Additionally, most cloud service companies are based within the US and as such are legally obliged to comply with Government agency
 requests for user data.
 
 Interestingly, much of this monitoring conflicts with the Universal
@@ -125,9 +126,9 @@ his honour and reputation. Everyone has the right to the protection
 of the law against such interference or attacks.\textquotedblright
 \end{quote}
 The evidence suggests that, over a lengthy period, these Governments
-have chosen to ignore a fundamental human right, the individuals right
+have chosen to ignore a fundamental human right, the individual's right
 to privacy. However, it is not just nations that choose to invade
-our privacy.  As the internet was designed without inherent privacy protections at protocol level, technology companies also take advantage of the centralised Internet architecture to profit from private data.
+our privacy.  As the Internet was designed without inherent privacy protections at protocol level, technology companies also take advantage of the centralised Internet architecture to profit from private data.
 
 \subsection{Surveillance as a business model }
 
@@ -137,7 +138,7 @@ Security expert Bruce Schneier notably stated at SOURCE conference in Boston:\ci
 \end{quote}
 This suggestion is based on the fact that many large technology
 companies generate the overwhelming majority of their revenue by
-mining their users data. The revenue model of companies like Google
+mining their users' data. The revenue model of companies like Google
 and Facebook is to provide their core services free from monetary
 charge and then sell user-targeted access to companies who advertise on their platform. Google generated USD 50.5~billion in advertising
 revenue during 2013 which equated to 91\% of their yearly sales\cite{google13}. Similarly, Facebook delivered advertising revenue of over USD 6.9
@@ -152,9 +153,9 @@ suggested that\cite{zuckerman14}:
 unintentional, consequence of choosing advertising as the default
 model to support online content and services.\textquotedblright 
 \end{quote}
-Zuckerman goes onto argue that Facebook, Google and others, are under
+Zuckerman goes on to argue that Facebook, Google and others, are under
 increasing pressure from shareholders to sell ever more advertisements.
-They predominantly grow their advertisement revenues by providing ever deeper insights into their users.  As a result, such companies mine their users data at an ever increasing rate.
+They predominantly grow their advertisement revenues by providing ever deeper insights into their users.  As a result, such companies mine their users' data at an ever increasing rate.
 
 This paper suggests that the ad supported web, while not being directly
 responsible for the move toward a more centralised architecture, has
@@ -169,7 +170,7 @@ Security of data is an issue that goes hand in hand with privacy,
 as without security data cannot remain private. A European Commission
 project, the ABC4Trust, suggests that users want privacy and organisations
 want security, however, it could be argued that information stolen
-from business typically also affects individuals and therefore both
+from a business typically also affects individuals and therefore both
 groups desire security, albeit of differing importance\cite{euABC4Trust}.
 
 Whilst opinion on this point may vary from reader to reader, evidence
@@ -180,7 +181,7 @@ alone, and with companies storing and sharing highly valued and sensitive
 information, demand for Internet data security has never been greater\cite{bcg12}. %Previously ignored by the security community, it is now widely recognised that the weakest link in the security chain are people \footnote{http://discovery.ucl.ac.uk/144215/1/BTTJSECv5.pdf}.
 
 In a UK Government survey on security breaches, 93\% of large organisations
-and 87\% of SME\textquoteright s experienced a security breach in
+and 87\% of SMEs experienced a security breach in
 2013. The survey reported that major breaches were typically caused
 by a combination of failures in not only people, but also process
 and the technology itself\cite{ukgov13}:
@@ -200,7 +201,7 @@ and other personal information. Similarly, in what appears to be a
 series of attacks, a Russian group has amassed an estimated 1.2 billion
 user names and passwords\cite{nyt14}.
 
-With businesses continuing to store valuable information in centralised, hence inherently insecure, data centers, managed by people that empirical evidence indicates are prone to mistakes, suggests a change in approach is required. Failure
+With businesses continuing to store valuable information in centralised, hence inherently insecure, data centres, managed by people that empirical evidence indicates are prone to mistakes, suggests a change in approach is required. Failure
 to adapt to these issues will only ensure that they continue. What is required is a change to the fundamental architecture
 of the Internet; one that removes central points of weakness and humans
 from the process of data management. This fresh approach should clearly
@@ -241,7 +242,7 @@ have security and privacy inherent within the design.
 %proposed solution.
 
 
-\section{The SAFE network \\ a new network design}
+\section{The SAFE network; \\ a new network design}
 
 Taking inspiration from complex natural systems, and specifically
 ant colonies, Scottish engineer David Irvine set about the problem
@@ -259,19 +260,18 @@ It is possible to store any type of data (structured and unstructured)
 on the vault network, with typically each user running a client to enable
 network requests. Vaults on the network don't
 only store data, they perform multiple functions, called personas.
-This includes managing the integrity of close nodes\footnote{Distance is measured with a bitwise exclusive or operation on the network addresses.} and the integrity of the data chunks.  
+This includes managing the integrity of close nodes\footnote{Distance is measured with a bitwise exclusive or operation on the network addresses.} and the integrity of the data chunks.
 
-\begin{figure}[hbtp]
+
+The closest nodes will continually change as nodes go on and offline. This provides a dynamic environment.  Normal usage should  induce a high network churn. Knowledge of a network area is managed by the concept of close groups.  A close group are the vaults whose addresses are closest to a given address, but not equal to it.  This determines a close group for every data chunk, but equally a close group is defined for every vault (figure 1).
+A majority-based decision algorithm ensures that each node follows the rules of the network. It minimises undesirable or malicious behaviour, as verifiable wrong calls by a node will be monitored by its surrounding nodes.  These nodes will reduce the rank of the offending node and eventually exclude it from the network.\cite{msVault}
+\begin{figure*}[hbpt]
 \centering
 \includegraphics[scale=0.2]{connection-map.png}
 \caption{Illustrative connection map of nodes showing the dynamic nature of the network. Connected lines indicate that these nodes have each other in their routing tables.  Nodes B, D, F and L are assumed to be the new close group for Node-K, where Node-I is no longer in the close group of four.}
-\vspace{1cm}
-\includegraphics[scale=0.35]{stack.png}
-\caption{Diagram representing the library stack of the MaidSafe project. Refer to the core development introduction pages\cite{msCORE} for detailed explanations.}
-\end{figure}
-The closest nodes will continually change as nodes go on and offline. This provides a dynamic environment.  Normal usage should  induce a high network churn. Knowledge of a network area is managed by the concept of close groups.  A close group are the four vaults whose address is closest to a given address, but not equal to it.  This determines a close group for every data chunk, but equally a close group is defined for every vault (figure 1) . A majority-based decision algorithm ensures that each node follows the rules of the network. It minimises undesirable or malicious behaviour, as verifiable wrong calls by a node will be monitored by its surrounding nodes.  These nodes will reduce the rank of the offending node and eventually exclude it from the network.\cite{msVault} 
+\end{figure*}
 
-Data is stored on the network in encrypted chunks. These chunks are generated by the self-encryption process where a sliding window encrypts and obfuscates chunks with the hash of neighbouring encrypted chunks. The final hash of the chunk serves as the name of the chunk.  This makes the network content addressable, at least when you have access to the data map to reconstruct a file\cite{msEncrypt}. Additionally, this allows the network to self-heal stored data; a stored chunk whose hash does not correspond to its address has been corrupted and can be restored from redundant copies.
+Data is stored on the network in encrypted chunks. These chunks are generated by the Self-Encryption process where a sliding window encrypts and obfuscates chunks with the hash of neighbouring chunks. The final hash of the chunk serves as the name of the chunk.  This makes the network content addressable, at least when you have access to the data map to reconstruct a file\cite{msEncrypt}. Additionally, this allows the network to self-heal stored data; a stored chunk whose hash does not correspond to its address has been corrupted and can be restored from redundant copies.
 
 In the interest of data availability, the network retains minimally four live
 copies of each data chunk at any time. Data managers are responsible for ensuring a new copy gets created as vaults go offline.  They also maintain a record of dead copies, as offline vaults are likely to return online later.  Because the network is content addressable, deduplication of data is utilised.
@@ -288,26 +288,26 @@ Importantly though, the MaidSafe network is the first distributed hash storage s
 \subsection{Data in a hostile environment}
 
 The problems of data surveillance, security and privacy are multi-faceted. The SAFE network employs a range of strategies to address these problems. By decentralising the storage of data on a global network, the SAFE
-network makes it more challenging for any local actor to monitor and trace information.  Data is no longer confined to a physical storage location.  Network churn makes storage a dynamical and mostly a memory-to-memory operation.
+network makes it more challenging for any local actor to monitor and trace information.  Data is no longer confined to a physical storage location.  Network churn makes storage dynamic and mostly a memory-to-memory operation.
 As data chunks are stored with a 512bit network address and each chunk of data
-is not linked to other chunks from the same file, reconstruction of a file without a datamap is both computationally infeasible and near impossible.  One needs the correct order of the correct chunks to start to decrypt AES-256.  The network will always respond to a get request; if the chunk does not exist, it will generate a random response. This largely defeats any attempt at scanning the address space.
+is not linked to other chunks from the same file, reconstruction of a file without a datamap is computationally infeasible. 
 
 Anonymity is a crucial element of the network. To provide a fully decentralised network, users must be able to self-authenticate onto it.  This process does not involve any register of the active users, or a third-party verification step.  Users are able to generate their own credentials and store their identity securely on the network. The credentials allow a user to retrieve a passport from the network that stores all additional keys to access and reconstruct their stored content from the network.\cite{msSA}. This provides users with the ability to manage their own
-identity for the first time at network level.  The authentication process happens fully within the client computer. The password is never sent out onto the network, nor is the traffic distinguishable from other network queries.
+identity for the first time at network level.  The authentication process happens fully within the client computer. The password is never sent out onto the network.
 
 Self-Authentication within the SAFE network provides users
 with anonymity as no entity, MaidSafe included, is aware of any information
 about any of the network users. Self-Authentication also ensures
 that access to the network can never be restricted for any individual.
 
-This means that applications on top of the SAFE network  need to get explicit permission from any user to collect personal information.  The user can always retract these permissions and is the owner of his own data at all times.
+This means that applications on top of the SAFE network  need to get explicit permission from any user to collect personal information.  The user can always retract these permissions and is the owner of his/her own data at all times.
 
-The Self Encryption process of all data ensures that data on the network is
+The Self-Encryption process of all data ensures that data on the network is
 always encrypted, whether at rest or in transit. Data is only
 ever decrypted by the client, on the end-user machine.  The encryption
 password cannot be stolen from the network, as it is not given out.  
 
-However, the risk remains that credentials are stolen from a compromised end-user machine.  There are measures one can take to protect against this threat, like external hardware authentication keys.  Such measures are currently beyond the scope of this article and the MaidSafe project.  As keylogging and hacking into individual end-user machines is a resource intensive tasks for any organisation, the MaidSafe network offers to level the playing field again for the opposing forces of a right to privacy and a drive for mass surveillance.
+However, the risk remains that credentials are stolen from a compromised end-user machine.  There are measures one can take to protect against this threat, like external hardware authentication keys.  Such measures are currently beyond the scope of this article and the MaidSafe project.  As keylogging and hacking into individual end-user machines is a resource intensive tasks for any organisation, the SAFE network levels the playing field for the opposing forces of a right to privacy and a drive for mass surveillance.
 
 It is also worth considering the robustness that the SAFE network
 provides. As the network is comprised of the resources of its users,
@@ -318,8 +318,8 @@ System (DNS), making it impervious to web censoring. %Governments looking to sto
 All SAFE traffic exists as fully encrypted UDP packets. This implements Net Neutrality at the core of the SAFE network.  All data packets are indistinguishable and can only be treated equally.
 
 However, despite many of these advantages, there
-are as many challenges the network needs to overcome to achieve
-wide scale adoption.
+are many challenges the network needs to overcome to achieve
+widescale adoption.
 
 
 \section{Discussion}
@@ -328,10 +328,10 @@ wide scale adoption.
 
 It is proposed that the SAFE network offers a solution to many of
 the security and privacy challenges experienced with the Internet
-today. However, even if the implementation and wide scale adoption
+today. However, even if the implementation and widescale adoption
 of the network is assumed, it still leaves many considerations for
 which answers are not yet known. Governments will still want to surveil
-both their citizens and others who they deem to be a potential threat.
+both their citizens and others whom they deem to be a potential threat.
 
 As mentioned before, credentials can be stolen and human beings are often the weakest link in a security scheme.  This paper proposes that Governments may have a legitimate interest to surveil possible security threats.  However, with the introduction of the SAFE network, mass surveillance will become too resource intensive to maintain.
 
@@ -349,9 +349,9 @@ However, it is important that the SAFE network does not make the advertisement d
 
 Alternatively, cryptocurrencies can be part of the solution. Innovations such as Bitcoin (currently) provide very low transaction fees and can be divided with a resolution of $10^{-8}$ BTC, making micropayments a viable option. Accumulated micropayments can automatically be transferred to the correct rights holders, be it for text, music, movies or applications. At present, Bitcoin has some technical challenges regarding transaction speed\footnote{It can take up to 60 minutes to confirm a Bitcoin transaction from several miners.} that could limit its usefulness. Also the real transaction cost - disregarding mining - for a bitcoin transfer is not insignificant. This cost is volatile, but has averaged above USD 20 per transaction since December 2013\cite{blockchain14}.
 
-Interestingly, the SAFE network incorporates a new cryptocurrency technology, called Safecoin.  Safecoin serves first to incentivise constructive behaviour on the network. Users are rewarded with Safecoin, paid to them by the network, as compensation for providing their computing resources. Similarly, application developers are rewarded for creating applications, based on how much their applications are used. As Safecoin transactions are not chained\footnote{Only the previous and current owner of the coin is known.} and a more efficient method of consensus is used, ie close groups within the network, it is energy-efficient and it can validate transactions at network speed. Additionally, Safecoin guarantees micropayments with a divisibility of $2^{-32}$. These attributes mean that it is a potentially viable way of facilitating rapid micropayments for any type of content within the network.
+Interestingly, the SAFE network incorporates a new cryptocurrency technology, called Safecoin.  Safecoin serves first to incentivise constructive behaviour on the network. Users are rewarded with Safecoin, paid to them by the network, as compensation for providing their computing resources. Similarly, application developers are rewarded for creating applications, based on how much their applications are used. As Safecoin transactions are not chained\footnote{Only the previous and current owner of the coin is known.} and a more efficient method of consensus is used, ie close groups within the network, it is energy-efficient and it can validate transactions at network speed. Additionally, Safecoin guarantees micropayments with a divisibility of at least $2^{-32}$. These attributes mean that it is a potentially viable way of facilitating rapid micropayments for any type of content within the network.
 
-Clearly there is no obvious answer to the question of how to fund a new decentralised Internet, and it is out with the scope of this paper to attempt to find one. However, there are many alternatives, all of which put the user in control of their data.
+Clearly there is no obvious answer to the question of how to fund a new decentralised Internet, and it is out the scope of this paper to attempt to find one. However, there are many alternatives, all of which put the user in control of their data.
 
 %When a user choose to pay for a service, not with his privacy, but with currency, the rise of cryptocurrencies can play an important part. Currencies
 %such as Bitcoin (currently) provide very low transaction fees. Accumulated micropayments can automatically be transferred to the correct rights holders, be it for text, music, movies or applications.
@@ -368,10 +368,12 @@ Clearly there is no obvious answer to the question of how to fund a new decentra
 
 \subsection{Competing alternatives}
 
-% nice link; http://medianet.kent.edu/surveys/IAD06S-P2PArchitectures-chibuike/P2P%20App.%20Survey%20Paper.htm
 
-MaidSafe is not the only organisation to build decentralised technologies for network infrastructure.  There are a number of alternative projects that value decentralisation. It is out with the scope of this paper to provide a detailed analysis of each.  The intention is to acknowledge that 
-the SAFE network is not an isolated project. %The list is not exhaustive and restricted to decentralised technologies only.
+MaidSafe is not the only organisation to build decentralised technologies for network infrastructure.  There are a number of alternative projects that value decentralisation. It is outwith the scope of this paper to provide a detailed analysis of each.  The intention is to acknowledge that 
+the SAFE network is not an isolated project.
+
+It should be noted, however, that these listed alternatives are restricted to public publishing networks only for the sake of brevity.  The reach of the \mbox{MaidSafe} protocol is more fundamental and supports any type of Internet or private application. Additionally, the simple principles of its operation allow for extension to new functionalities in the future with a particular interest in decentralised computation.
+
 
 Established in 2000, Gnutella was one of the earliest decentralised pure peer-to-peer networks and currently supports several million users.  As with the SAFE network there is no
 reliance on any central servers. The network is comprised of leaf nodes, nodes which have no child nodes, and ultra nodes, which are capable of routing requests and responses
@@ -386,7 +388,7 @@ project was established in 1999 and his been in development ever since. The netw
 flow of data. Every node on the network contributes storage space and data is stored in encrypted blocks and spread on several network nodes. 
 Unlike the SAFE network, which was designed as a decentralised data and communications network, Freenet was primarily designed as a network for the publication of files and is not 
 intended to limit access to those files. There is no mechanism to delete data on the network, however, information that is not retrieved regularly can drop off the network as allocated disk 
-space is utilised. This approach makes Freenet an effective anonymous publishing platform, but its lack of storage and management of private data limits its potential to replace the todays
+space is utilised. This approach makes Freenet an effective anonymous publishing platform, but its lack of storage and management of private data limits its potential to replace today's
 existing centralised web services. 
 
 BitTorrent is the most popular peer-to-peer network and is, according to the company, used by an estimated 150 million users world wide.  BitTorrent brings an innovative 
@@ -404,7 +406,7 @@ The SAFE network potentially provides a solution to those looking
 to enjoy the vast resources of the Internet without many of the downsides,
 which include mass surveillance from governments and companies. The SAFE
 network also aims to minimise many of the security risks that currently
-exist with the existing world wide web. The SAFE network has been implemented
+exist with the existing World Wide Web. The SAFE network has been implemented
 in a decentralised architecture and has been designed in this way
 to remove the requirement for human intervention from our data, while
 also removing servers, which act as a central point of weakness.
@@ -412,7 +414,7 @@ also removing servers, which act as a central point of weakness.
 
 \begin{thebibliography}{9}
 
-\bibitem{statisticaInternet14} Statista, \emph{Average global internet connection speed from 1st quarter 2011 to 1st quarter 2014}, \href{http://www.statista.com/statistics/204954/average-internet-connection-speed-worldwide/}{statista.com 2014}
+\bibitem{statisticaInternet14} Statista, \emph{Average Global Internet Connection Speed from 1st Quarter 2011 to 1st Quarter 2014}, \href{http://www.statista.com/statistics/204954/average-internet-connection-speed-worldwide/}{statista.com 2014}
 
 \bibitem{nay14} J.R. Nay, \emph{Skype's Worldwide Traffic Continues to Grow, with 214 Billion Minutes on VOIP in 2013}, \href{http://www.trutower.com/2014/01/13/skype-voip-app-calling-statistics-telegeography/}{TruTower, January 13, 2014}
 
